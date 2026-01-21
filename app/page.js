@@ -26,8 +26,8 @@ export default function BirthdayPage() {
             /* Added the class here - also added 'scale-110' as a base to prevent edges showing */
             className="object-cover opacity-90 animate-ken-burns scale-110"
           />
-          {/* Soft professional overlay */}
-          <div className="absolute inset-0 bg-gradient-to-b from-white/30 via-transparent to-[#FDFCFB]"></div>
+          {/* Adjusted professional overlay: Fades out sooner so bottom text is clear */}
+          <div className="absolute inset-0 bg-gradient-to-b from-white/40 via-transparent to-white/10"></div>
         </div>
 
         {/* Content remains relative to stay above the moving image */}
@@ -71,7 +71,7 @@ export default function BirthdayPage() {
             <div className="space-y-4">
               <h2 className="text-4xl md:text-6xl font-extrabold tracking-tight text-slate-900 leading-tight">
                 Celebrating the <br />{" "}
-                <span className="text-blue-600 decoration-blue-200" >
+                <span className="text-blue-600 decoration-blue-200">
                   Life of Influence.
                 </span>
               </h2>
