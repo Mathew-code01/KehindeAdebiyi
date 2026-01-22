@@ -43,18 +43,37 @@ export default function BirthdayPage() {
   const [shouldLoadVideo, setShouldLoadVideo] = useState(false);
   const videoRef = useRef(null);
 
-  // REAL PAGE LOAD LOGIC - FIXED FOR ESLINT
+  const [resourcesReady, setResourcesReady] = useState(0);
+  const totalResources = 4; // 1 for Window Load + 3 for main images
+
+  // Function to track loading progress
+  const resourceLoaded = useCallback(() => {
+    setResourcesReady((prev) => prev + 1);
+  }, []);
+
+  // Monitor if everything is done
   useEffect(() => {
-    const handleLoad = () => setIsLoaded(true);
+    if (resourcesReady >= totalResources) {
+      // Smallest delay just to let the browser paint the styles
+      requestAnimationFrame(() => setIsLoaded(true));
+    }
+  }, [resourcesReady, totalResources]);
+
+  // Handle CSS/Style loading
+  // Handle CSS/Style loading - FIXED for ESLint
+  useEffect(() => {
+    const handleLoad = () => {
+      // Use a microtask to avoid synchronous setState inside Effect
+      queueMicrotask(() => resourceLoaded());
+    };
 
     if (document.readyState === "complete") {
-      // Use requestAnimationFrame to avoid "cascading renders" warning
-      requestAnimationFrame(() => setIsLoaded(true));
+      handleLoad();
     } else {
       window.addEventListener("load", handleLoad);
       return () => window.removeEventListener("load", handleLoad);
     }
-  }, []);
+  }, [resourceLoaded]);
 
   // Intersection Observer for video
   useEffect(() => {
@@ -89,7 +108,7 @@ export default function BirthdayPage() {
     <>
       {/* REAL PAGE LOADER */}
       {!isLoaded && (
-        <div className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-[#FDFCFB]">
+        <div className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-[#FDFCFB]">
           <div className="relative flex flex-col items-center">
             <div className="relative mb-8">
               <div className="absolute inset-0 bg-blue-100 rounded-full scale-150 animate-ping opacity-30" />
@@ -117,7 +136,7 @@ export default function BirthdayPage() {
 
       <main
         className={`min-h-screen bg-[#FDFCFB] selection:bg-blue-100 selection:text-blue-900 overflow-x-hidden font-poppins text-slate-900 transition-opacity duration-1000 ${
-          isLoaded ? "opacity-100" : "opacity-0"
+          isLoaded ? "opacity-100" : "opacity-0 invisible h-0"
         }`}
       >
         {/* SECTION 1: HERO */}
@@ -128,7 +147,7 @@ export default function BirthdayPage() {
               alt="The Adebiyi Twins"
               fill
               priority
-              quality={90}
+              onLoad={resourceLoaded} // Add this line
               className="object-cover opacity-80 animate-ken-burns scale-110"
             />
             <div className="absolute inset-0 bg-gradient-to-b from-white/40 via-transparent to-transparent" />
@@ -168,6 +187,7 @@ export default function BirthdayPage() {
                 src="/mentor-1.jpg"
                 alt="Kehinde Adebiyi"
                 fill
+                onLoad={resourceLoaded} // Add this line
                 className="object-cover transition-transform duration-1000 group-hover:scale-110"
               />
             </div>
@@ -215,6 +235,7 @@ export default function BirthdayPage() {
                 src="/brother-1.jpg"
                 alt="The Twins"
                 fill
+                onLoad={resourceLoaded} // Add this line
                 className="object-cover"
               />
             </div>
