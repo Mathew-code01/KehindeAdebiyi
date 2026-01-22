@@ -140,40 +140,53 @@ export default function BirthdayPage() {
         }`}
       >
         {/* SECTION 1: HERO */}
-        <section className="relative h-screen flex flex-col items-center justify-center text-center px-6 overflow-hidden bg-white">
+        <section className="relative h-screen flex flex-col items-center justify-center text-center px-6 overflow-hidden bg-black">
           <div className="absolute inset-0 z-0">
             <Image
               src="/twins-hero.jpg"
               alt="The Adebiyi Twins"
               fill
               priority
-              onLoad={resourceLoaded} // Add this line
-              className="object-cover opacity-80 animate-ken-burns scale-110"
+              onLoad={resourceLoaded}
+              className="object-cover opacity-50 blur-[2px] animate-ken-burns scale-110"
             />
-            <div className="absolute inset-0 bg-gradient-to-b from-white/40 via-transparent to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/80" />
+            <div className="absolute inset-0 bg-black/20 backdrop-blur-[1px]" />
           </div>
 
           <div className="relative z-10 max-w-5xl animate-in fade-in zoom-in-95 duration-1000">
-            <h1 className="text-6xl md:text-9xl font-extrabold tracking-tighter text-slate-900 leading-[0.95] mb-16 drop-shadow-sm">
-              World <br />
-              <span className="text-blue-700">Adebiyis</span> Day
+            {/* Reduced Hero Font Size: md:text-8xl for a more professional, elegant look */}
+            <h1 className="text-5xl md:text-8xl font-black tracking-tighter text-white leading-[1.2] mb-12 drop-shadow-2xl">
+              World
+              <br />
+              <span className="flex flex-col md:flex-row items-center justify-center gap-x-6">
+                {/* Deep Royal Blue with sophisticated tracking */}
+                <span className="text-blue-600 tracking-tight drop-shadow-[0_0_20px_rgba(37,99,235,0.3)]">
+                  Adebiyis
+                </span>
+                <span className="text-white">Day</span>
+              </span>
             </h1>
 
-            <div className="flex flex-col items-center gap-8">
-              <div className="px-4 md:px-8 py-3 rounded-full border-2 border-blue-600 bg-white shadow-xl animate-pulse">
-                <span className="text-[10px] md:text-sm uppercase tracking-[0.3em] md:tracking-[0.4em] text-blue-800 font-black whitespace-nowrap">
+            <div className="flex flex-col items-center gap-10">
+              {/* Refined Glassmorphism Badge: Smaller and more crisp */}
+              <div className="px-5 md:px-8 py-2.5 rounded-full border border-white/10 bg-white/5 backdrop-blur-xl shadow-2xl transition-all duration-500 hover:bg-white/10">
+                <span className="text-[9px] md:text-[10px] uppercase tracking-[0.4em] text-white/90 font-bold whitespace-nowrap">
                   Happy Birthday to the Amazing Twins
                 </span>
               </div>
 
-              <p className="text-xs md:text-sm font-bold text-white tracking-widest uppercase max-w-2xl leading-relaxed drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+              {/* Reduced Paragraph Size: text-[11px] is the 'sweet spot' for high-end minimalism */}
+              <p className="text-[9px] md:text-[11px] font-medium text-white/60 tracking-[0.15em] uppercase max-w-xl leading-relaxed drop-shadow-lg">
                 Happy birthday to the incredible twins, Taiwo and Kehinde
                 Adebiyi! 🎉 Wishing you a year filled with joy, success, and
                 fulfilment!
               </p>
 
-              <div className="flex flex-col items-center gap-2 mt-4 text-white drop-shadow-md">
-                <ArrowDown className="w-6 h-6 animate-bounce" />
+              {/* Subtle minimalist scroll indicator */}
+              <div className="flex flex-col items-center gap-3 mt-4">
+                <div className="w-[1px] h-8 bg-gradient-to-b from-blue-600 to-transparent animate-pulse" />
+                <ArrowDown className="w-4 h-4 text-white/40 animate-bounce" />
               </div>
             </div>
           </div>
