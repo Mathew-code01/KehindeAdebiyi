@@ -44,19 +44,26 @@ export default function BirthdayPage() {
   const videoRef = useRef(null);
 
   const [resourcesReady, setResourcesReady] = useState(0);
-  const totalResources = 4; // 1 for Window Load + 3 for main images
+  const totalResources = 2; // 1 for Window Load + 3 for main images
 
   // Function to track loading progress
   const resourceLoaded = useCallback(() => {
     setResourcesReady((prev) => prev + 1);
   }, []);
 
-  // Monitor if everything is done
+  // Monitor with a 3.5s safety timeout
   useEffect(() => {
+    // If the images take too long, force show the page anyway
+    const forceLoad = setTimeout(() => {
+      setIsLoaded(true);
+    }, 5000);
+
     if (resourcesReady >= totalResources) {
-      // Smallest delay just to let the browser paint the styles
+      clearTimeout(forceLoad);
       requestAnimationFrame(() => setIsLoaded(true));
     }
+
+    return () => clearTimeout(forceLoad);
   }, [resourcesReady, totalResources]);
 
   // Handle CSS/Style loading
@@ -140,53 +147,52 @@ export default function BirthdayPage() {
         }`}
       >
         {/* SECTION 1: HERO */}
+        {/* SECTION 1: HERO */}
         <section className="relative h-screen flex flex-col items-center justify-center text-center px-6 overflow-hidden bg-black">
           <div className="absolute inset-0 z-0">
             <Image
-              src="/twins-hero.jpg"
+              src="/twins-hero.webp"
               alt="The Adebiyi Twins"
               fill
               priority
+              quality={85}
               onLoad={resourceLoaded}
-              className="object-cover opacity-50 blur-[2px] animate-ken-burns scale-110"
+              className="object-cover opacity-60 animate-ken-burns scale-110"
             />
-            <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/80" />
-            <div className="absolute inset-0 bg-black/20 backdrop-blur-[1px]" />
+            <div className="absolute inset-0 bg-black/40" />
           </div>
 
           <div className="relative z-10 max-w-5xl animate-in fade-in zoom-in-95 duration-1000">
-            {/* Reduced Hero Font Size: md:text-8xl for a more professional, elegant look */}
-            <h1 className="text-5xl md:text-8xl font-black tracking-tighter text-white leading-[1.2] mb-12 drop-shadow-2xl">
-              World
-              <br />
-              <span className="flex flex-col md:flex-row items-center justify-center gap-x-6">
-                {/* Deep Royal Blue with sophisticated tracking */}
-                <span className="text-blue-600 tracking-tight drop-shadow-[0_0_20px_rgba(37,99,235,0.3)]">
+            {/* Heading: Responsive sizing and line-breaking */}
+            <h1 className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-black tracking-tighter text-white leading-[1.1] mb-12 drop-shadow-2xl">
+              <span className="block mb-2 sm:mb-0">World</span>
+              <span className="flex flex-col sm:flex-row items-center justify-center sm:gap-x-4 md:gap-x-6">
+                <span className="text-blue-600 drop-shadow-[0_0_20px_rgba(37,99,235,0.4)] block sm:inline">
                   Adebiyis
                 </span>
-                <span className="text-white">Day</span>
+                <span className="text-white block sm:inline">Day</span>
               </span>
             </h1>
 
             <div className="flex flex-col items-center gap-10">
-              {/* Refined Glassmorphism Badge: Smaller and more crisp */}
-              <div className="px-5 md:px-8 py-2.5 rounded-full border border-white/10 bg-white/5 backdrop-blur-xl shadow-2xl transition-all duration-500 hover:bg-white/10">
-                <span className="text-[9px] md:text-[10px] uppercase tracking-[0.4em] text-white/90 font-bold whitespace-nowrap">
+              {/* Badge: White Text with Blue In-and-Out Pulse Glow */}
+              <div className="px-6 md:px-8 py-3 rounded-full border border-blue-500/30 bg-blue-600/10 backdrop-blur-xl shadow-[0_0_20px_rgba(37,99,235,0.2)] animate-pulse">
+                <span className="text-[10px] md:text-[12px] tracking-[0.3em] text-white font-bold whitespace-nowrap">
                   Happy Birthday to the Amazing Twins
                 </span>
               </div>
 
-              {/* Reduced Paragraph Size: text-[11px] is the 'sweet spot' for high-end minimalism */}
-              <p className="text-[9px] md:text-[11px] font-medium text-white/60 tracking-[0.15em] uppercase max-w-xl leading-relaxed drop-shadow-lg">
+              {/* Paragraph: Crisp White and Professional Size */}
+              <p className="text-[11px] md:text-[13px] font-medium text-white tracking-[0.1em] max-w-xl leading-relaxed drop-shadow-md">
                 Happy birthday to the incredible twins, Taiwo and Kehinde
                 Adebiyi! 🎉 Wishing you a year filled with joy, success, and
                 fulfilment!
               </p>
 
-              {/* Subtle minimalist scroll indicator */}
+              {/* Minimalist scroll indicator */}
               <div className="flex flex-col items-center gap-3 mt-4">
-                <div className="w-[1px] h-8 bg-gradient-to-b from-blue-600 to-transparent animate-pulse" />
-                <ArrowDown className="w-4 h-4 text-white/40 animate-bounce" />
+                <div className="w-[1px] h-10 bg-gradient-to-b from-blue-600 to-transparent" />
+                <ArrowDown className="w-4 h-4 text-white/60 animate-bounce" />
               </div>
             </div>
           </div>
@@ -238,19 +244,22 @@ export default function BirthdayPage() {
         {/* SECTION 3: THE TWINS VISUAL */}
         <section className="bg-blue-50/50 py-24 md:py-40 px-6 border-y border-blue-100">
           <div className="max-w-5xl mx-auto text-center space-y-16">
-            <h3 className="text-4xl md:text-7xl font-black text-slate-900 tracking-tighter leading-[1.2]">
+            <h3 className="text-4xl md:text-6xl font-black text-slate-900 tracking-tighter leading-[1.1]">
               Happy Birthday to the <br />
               <span className="text-blue-700">Amazing Twins</span>
             </h3>
 
-            <div className="relative aspect-video w-full rounded-[2.5rem] overflow-hidden shadow-2xl border-[12px] border-white">
+            <div className="relative aspect-video w-full rounded-[2.5rem] overflow-hidden shadow-2xl border-[12px] border-white bg-white">
+              {/* Note: object-bottom shifts the wide image UP to show the subjects better */}
               <Image
-                src="/brother-1.jpg"
+                src="/brother-1.webp"
                 alt="The Twins"
                 fill
-                onLoad={resourceLoaded} // Add this line
-                className="object-cover"
+                // onLoad={resourceLoaded}
+                className="object-cover object-bottom transition-transform duration-1000 hover:scale-105"
               />
+
+              <div className="absolute inset-0 ring-1 ring-inset ring-black/5 rounded-[1.8rem]" />
             </div>
           </div>
         </section>
@@ -263,39 +272,42 @@ export default function BirthdayPage() {
                 Oriki <span className="text-blue-600">Ibeji</span>
               </h3>
 
-              <div className="text-slate-800 text-lg md:text-xl italic leading-relaxed font-medium space-y-6">
+              <div className="text-slate-800 text-base md:text-lg italic leading-relaxed font-medium space-y-4">
                 <p>
-                  &quot;Ejire ara isokun. Edunjobi, omoge d&apos;ade.
-                  A-se-wa-be-mo-bi-re. O d&apos;ile alayo, o d&apos;ile
-                  ire.&quot;
+                  Ẹ̀jìrẹ́ ará ìṣokún. Ẹdúnjobí. <br />
+                  Ọmọ ẹdun tíí ṣeré orí igi. <br />
+                  Okan mba bi, Eji wole to mi wa. <br />
+                  Edunjobi a po jojo wolu.
                 </p>
                 <p>
-                  Beji l&apos;oro, Beji l&apos;ola. O nile owo, o nile omo.
-                  A-kan-bi, a-kan-ji, e-ji-wun-mi. O taji loju orun, o
-                  f&apos;ese mejeji t&apos;aye.
+                  O f&apos;iya gbaaru, O gbe Baba lori esin. <br />
+                  Winriwinrin l&apos;oju orogun, Ejiworo l&apos;oju iya re.{" "}
+                  <br />
+                  Omo ko ile alaso, o ya sile alakisa. <br />O so alakisa di
+                  onigba aso.
                 </p>
                 <p>
-                  Ẹ jire ooo, Ẹdunjobi. Okan n bini, eji n kẹ wa. A
-                  b&apos;i-ejire-re-re ti i sọ ẹkun d&apos;ẹrin. O sọ talaka
-                  d&apos;oloro. Ẹ kú ọjọ́ ìbí!&quot;
+                  Ejiwunmi okomi, abiyamo obekisibekese. <br />O f&apos;ese
+                  mejeji be sile alakisa, o so onigba aso.
                 </p>
               </div>
             </div>
 
+            {/* VIDEO CONTAINER - FIXED FALLBACK IMAGE */}
             <div className="relative rounded-[2.5rem] overflow-hidden shadow-2xl bg-slate-900 border-[10px] border-white group min-h-[500px]">
-              {!isVideoReady && (
+              {/* Show poster if video isn't playing OR isn't ready */}
+              {(!isPlaying || !isVideoReady) && (
                 <Image
-                  src="/video-poster.jpg"
-                  alt="Poster"
+                  src="/video-poster.webp"
+                  alt="Video Thumbnail"
                   fill
-                  className={`object-cover z-10 transition-opacity duration-700 ${
-                    isPlaying && isVideoReady ? "opacity-0" : "opacity-70"
-                  }`}
+                  priority
+                  className="object-cover z-10 transition-opacity duration-700 opacity-70"
                 />
               )}
 
               {!isPlaying && (
-                <div className="absolute inset-0 z-20 flex flex-col items-center justify-center bg-black/10 group-hover:bg-black/30 transition-all duration-500">
+                <div className="absolute inset-0 z-20 flex flex-col items-center justify-center bg-black/20 group-hover:bg-black/40 transition-all duration-500">
                   <button
                     onClick={handlePlay}
                     className="w-24 h-24 bg-white rounded-full flex items-center justify-center shadow-2xl scale-90 group-hover:scale-100 transition-transform"

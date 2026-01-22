@@ -21,7 +21,7 @@ export const metadata = {
     siteName: "Adebiyi Twins Tribute",
     images: [
       {
-        url: "twins-hero.jpg", // Create this 1200x630 image in your public folder
+        url: "/twins-hero.webp", // Added leading slash
         width: 1200,
         height: 630,
         alt: "Taiwo and Kehinde Adebiyi Birthday Tribute",
@@ -34,7 +34,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "World Adebiyi's Day | Happy Birthday",
     description: "Celebrating the incredible Adebiyi twins.",
-    images: ["/twins-hero.jpg"],
+    images: ["/twins-hero.webp"], // Ensure this matches the OG image path
   },
 };
 
