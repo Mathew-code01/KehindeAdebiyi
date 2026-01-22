@@ -13,6 +13,14 @@ export const metadata = {
   description:
     "Celebrating the amazing legacy and birthday of the Adebiyi twins, Taiwo & Kehinde.",
   metadataBase: new URL("https://kehindeadebiyi.org"),
+  
+  // FAVICON & ICON CONFIGURATION
+  icons: {
+    icon: "/favicon.webp",
+    shortcut: "/favicon.webp",
+    apple: "/favicon.webp", // This will also work for mobile home screens
+  },
+
   openGraph: {
     title: "World Adebiyi's Day | Happy Birthday",
     description:
@@ -21,7 +29,7 @@ export const metadata = {
     siteName: "Adebiyi Twins Tribute",
     images: [
       {
-        url: "/twins-hero.webp", // Added leading slash
+        url: "/twins-hero.webp",
         width: 1200,
         height: 630,
         alt: "Taiwo and Kehinde Adebiyi Birthday Tribute",
@@ -34,7 +42,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "World Adebiyi's Day | Happy Birthday",
     description: "Celebrating the incredible Adebiyi twins.",
-    images: ["/twins-hero.webp"], // Ensure this matches the OG image path
+    images: ["/twins-hero.webp"],
   },
 };
 
