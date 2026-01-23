@@ -181,9 +181,9 @@ export default function BirthdayPage() {
             <p className="text-[12px] sm:text-[13px] md:text-[15px] font-medium text-white/80 tracking-wide max-w-[280px] sm:max-w-[350px] md:max-w-[500px] leading-relaxed mb-8">
               Every January 23rd is a day to celebrate the incredible{" "}
               <br className="hidden sm:block" />
-              twins, Taiwo and Kehinde Adebiyi! 🎉 Wishing them{" "}
+              twins, Taiwo and Kehinde Adebiyi! 🎉 Cheers to{" "}
               <br className="hidden sm:block" />a year filled with joy, success,
-              and fulfilment!
+              and fulfilment
             </p>
 
             {/* 4. POINT: Scroll Indicator */}
@@ -262,25 +262,30 @@ export default function BirthdayPage() {
 
         {/* SECTION 4: ORIKI & VIDEO */}
         <section id="oriki-trigger" className="py-24 md:py-32 px-6 bg-white">
+          {" "}
+          {/* Zebra Layout: Clean White */}
           <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-8 items-stretch">
-            {/* TEXT BOX: w-full ensures it takes full width on mobile */}
-            <div className="w-full flex flex-col justify-center space-y-8 p-10 md:p-14 bg-blue-50/30 rounded-[2.5rem] border border-blue-100 shadow-sm">
-              <div className="space-y-2">
-                <h3 className="text-3xl md:text-5xl font-extrabold text-slate-900 tracking-tight">
-                  Oriki <span className="text-blue-600">Ibeji</span>
+            {/* TEXT BOX: Updated with 'Eulogy for Twins' and expanded text */}
+            <div className="w-full flex flex-col justify-center space-y-10 p-10 md:p-16 bg-slate-50/50 rounded-[2.5rem] border border-slate-100 shadow-sm">
+              <div className="space-y-3">
+                <h3 className="text-4xl md:text-5xl font-light text-slate-900 tracking-tight">
+                  Oriki{" "}
+                  <span className="font-semibold text-blue-600">Ibeji</span>
                 </h3>
-                <p className="text-[10px] tracking-[0.4em] uppercase text-blue-900/50 font-bold">
-                  The Sacred Chant
+                <p className="text-[10px] tracking-[0.5em] uppercase text-slate-400 font-bold">
+                  Eulogy for Twins
                 </p>
               </div>
 
-              <div className="text-slate-800 text-sm md:text-base italic leading-relaxed font-medium space-y-6">
+              <div className="text-slate-700 text-base md:text-lg italic leading-[1.8] font-normal space-y-8">
                 <p>
-                  Ẹ̀jìrẹ́ ará ìṣokún. Ẹdúnjobí. <br />
+                  Ẹ̀jìrẹ́ ará ìṣokún. <br />
+                  Ẹdúnjobí. <br />
                   Ọmọ ẹdun tíí ṣeré orí igi. <br />
                   Okan mba bi, Eji wole to mi wa. <br />
                   Edunjobi a po jojo wolu.
                 </p>
+
                 <p>
                   O f&apos;iya gbaaru, O gbe Baba lori esin. <br />
                   Winriwinrin l&apos;oju orogun, Ejiworo l&apos;oju iya re.{" "}
@@ -288,19 +293,22 @@ export default function BirthdayPage() {
                   Omo ko ile alaso, o ya sile alakisa. <br />O so alakisa di
                   onigba aso.
                 </p>
+
                 <p>
                   Beji lo n se onibara lore, <br />
                   Beji lo n se onigese di olowo. <br />
                   O ji ni kutukutu, o tẹ ekun n’ifa. <br />
                   A-ji-fẹ-fẹ-fẹ-l’oju-iya-rẹ.
                 </p>
+
                 <p>
                   Ẹ̀jìrẹ́ òkin, ọmọ ẹdun tíí ṣeré orí igi <br />
                   A-bí-fẹ́jẹ́-fẹ́jẹ́ lójú mọ́mọ́ rẹ̀. <br />
                   O bá dandan l&apos;énu, o sọ dandan d&apos;òkodò. <br />
                   Ejiwunmi okomi, abiyamo obekisibekese.
                 </p>
-                <p>
+
+                <p className="not-italic font-medium text-slate-900 pt-4 border-t border-slate-200/60">
                   O f&apos;ese mejeji be sile alakisa, o so onigba aso. <br />
                   Ẹ̀jìrẹ́ ará ìṣokún, wá bami rẹ́, kí o fún mi ní owó, <br />
                   Kí o fún mi ní ọmọ, kí o fún mi ní àlàáfíà.
@@ -308,7 +316,7 @@ export default function BirthdayPage() {
               </div>
             </div>
 
-            {/* VIDEO CONTAINER: Updated to w-full and responsive aspect ratio */}
+            {/* VIDEO CONTAINER */}
             <div className="relative w-full rounded-[2.5rem] overflow-hidden shadow-2xl bg-black border-[10px] border-white group h-full min-h-[500px] md:min-h-[600px] aspect-[4/5] md:aspect-auto">
               {(!isPlaying || !isVideoReady) && (
                 <Image
@@ -339,7 +347,6 @@ export default function BirthdayPage() {
                   ref={videoRef}
                   src="/birthday-video.mp4"
                   onPlaying={() => setIsVideoReady(true)}
-                  /* object-cover + object-top fills container and keeps faces in view */
                   className={`w-full h-full object-cover object-top absolute inset-0 bg-black ${
                     isVideoReady ? "opacity-100" : "opacity-0"
                   }`}
