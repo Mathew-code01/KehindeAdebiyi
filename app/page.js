@@ -163,11 +163,15 @@ export default function BirthdayPage() {
           </div>
 
           <div className="relative z-10 max-w-7xl animate-in fade-in zoom-in-95 duration-1000">
-            {/* Headline: One-line, clean, Navy + Royal Blue palette */}
+            {/* SECTION 1: HERO */}
             <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tighter leading-tight mb-10 flex flex-row items-center justify-center gap-x-3 sm:gap-x-5">
-              <span className="text-blue-900">World</span>
-              <span className="text-blue-600">Adebiyis</span>
-              <span className="text-blue-900">Day</span>
+              <span className="text-black drop-shadow-[0_0_1px_rgba(255,255,255,0.5)]">
+                World
+              </span>
+              <span className="text-blue-600 animate-glow">Adebiyis</span>
+              <span className="text-black drop-shadow-[0_0_1px_rgba(255,255,255,0.5)]">
+                Day
+              </span>
             </h1>
 
             <div className="flex flex-col items-center gap-10">
@@ -263,7 +267,7 @@ export default function BirthdayPage() {
         {/* SECTION 4: ORIKI & VIDEO */}
         <section id="oriki-trigger" className="py-24 md:py-32 px-6 bg-white">
           <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-8 items-stretch">
-            {/* TEXT BOX: Balanced Height */}
+            {/* TEXT BOX: Expanded with more Oriki */}
             <div className="flex flex-col justify-center space-y-8 p-10 md:p-14 bg-blue-50/30 rounded-[2.5rem] border border-blue-100 shadow-sm">
               <div className="space-y-2">
                 <h3 className="text-3xl md:text-5xl font-extrabold text-slate-900 tracking-tight">
@@ -289,6 +293,13 @@ export default function BirthdayPage() {
                   onigba aso.
                 </p>
                 <p>
+                  {/* New lines added to increase height */}
+                  Beji lo n se onibara lore, <br />
+                  Beji lo n se onigese di olowo. <br />
+                  O ji ni kutukutu, o tẹ ekun n’ifa. <br />
+                  A-ji-fẹ-fẹ-fẹ-l’oju-iya-rẹ.
+                </p>
+                <p>
                   Ẹ̀jìrẹ́ òkin, ọmọ ẹdun tíí ṣeré orí igi <br />
                   A-bí-fẹ́jẹ́-fẹ́jẹ́ lójú mọ́mọ́ rẹ̀. <br />
                   O bá dandan l&apos;énu, o sọ dandan d&apos;òkodò. <br />
@@ -302,8 +313,8 @@ export default function BirthdayPage() {
               </div>
             </div>
 
-            {/* VIDEO CONTAINER: Matches expanded text height */}
-            <div className="relative rounded-[2.5rem] overflow-hidden shadow-2xl bg-black border-[10px] border-white group h-full min-h-[450px] md:min-h-0">
+            {/* VIDEO CONTAINER: Changed to aspect-[4/5] to prevent head cut-off */}
+            <div className="relative rounded-[2.5rem] overflow-hidden shadow-2xl bg-black border-[10px] border-white group h-full min-h-[600px] aspect-[4/5]">
               {(!isPlaying || !isVideoReady) && (
                 <Image
                   src="/video-poster.webp"
@@ -333,7 +344,8 @@ export default function BirthdayPage() {
                   ref={videoRef}
                   src="/birthday-video.mp4"
                   onPlaying={() => setIsVideoReady(true)}
-                  className={`w-full h-full object-cover absolute inset-0 bg-black ${
+                  /* object-cover fills the space, object-top protects the heads */
+                  className={`w-full h-full object-cover object-top absolute inset-0 bg-black ${
                     isVideoReady ? "opacity-100" : "opacity-0"
                   }`}
                   controls={isPlaying}
@@ -343,7 +355,7 @@ export default function BirthdayPage() {
             </div>
           </div>
         </section>
-        
+
         {/* SECTION 5: FOOTER */}
         <footer className="bg-blue-700 py-24 px-6 relative overflow-hidden text-white">
           <div className="relative z-10 max-w-6xl mx-auto flex flex-col items-center space-y-16">
