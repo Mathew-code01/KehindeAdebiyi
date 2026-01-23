@@ -147,8 +147,7 @@ export default function BirthdayPage() {
         }`}
       >
         {/* SECTION 1: HERO */}
-        {/* SECTION 1: HERO */}
-        <section className="relative h-screen flex flex-col items-center justify-center text-center px-6 overflow-hidden bg-black">
+        <section className="relative h-screen flex flex-col items-center justify-end pb-20 md:pb-28 text-center px-6 overflow-hidden bg-black">
           <div className="absolute inset-0 z-0">
             <Image
               src="/twins-hero.webp"
@@ -162,35 +161,31 @@ export default function BirthdayPage() {
             <div className="absolute inset-0 bg-black/40" />
           </div>
 
-          <div className="relative z-10 max-w-7xl animate-in fade-in zoom-in-95 duration-1000">
-            {/* SECTION 1: HERO */}
-            <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tighter leading-tight mb-10 flex flex-row items-center justify-center gap-x-3 sm:gap-x-5">
-              <span className="text-black drop-shadow-[0_0_1px_rgba(255,255,255,0.5)]">
-                World
-              </span>
+          <div className="relative z-10 max-w-7xl animate-in fade-in slide-in-from-bottom-8 duration-1000">
+            {/* 1. Headline: Back to White, spacing reduced to mb-8 */}
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tighter leading-tight mb-8 flex flex-row items-center justify-center gap-x-3 sm:gap-x-5">
+              <span className="text-white">World</span>
               <span className="text-blue-600 animate-glow">Adebiyis</span>
-              <span className="text-black drop-shadow-[0_0_1px_rgba(255,255,255,0.5)]">
-                Day
-              </span>
+              <span className="text-white">Day</span>
             </h1>
 
-            <div className="flex flex-col items-center gap-10">
-              {/* THE BADGE: Now with a soft "In-and-Out" breathing effect */}
+            <div className="flex flex-col items-center gap-8">
+              {/* 2. THE BADGE: Spacing between title and badge is now tighter (gap-8) */}
               <div className="px-6 md:px-8 py-3 rounded-full border border-blue-500/30 bg-blue-600/10 backdrop-blur-xl transition-all duration-1000">
                 <span className="text-[10px] md:text-[11px] tracking-[0.3em] text-white font-bold whitespace-nowrap uppercase animate-pulse">
                   Happy Birthday to the Amazing Twins
                 </span>
               </div>
 
-              {/* Paragraph: Professional agency sizing */}
-              <p className="text-[11px] md:text-[13px] font-medium text-white/90 tracking-[0.1em] max-w-xl leading-relaxed">
+              {/* 3. Paragraph: Small, professional agency sizing with better line spacing */}
+              <p className="text-[11px] md:text-[13px] font-medium text-white/90 tracking-[0.1em] max-w-xl leading-relaxed mt-2">
                 Every January 23rd is a day to celebrate the incredible twins,
                 Taiwo and Kehinde Adebiyi! 🎉 Wishing them a year filled with
                 joy, success, and fulfilment!
               </p>
 
-              {/* Minimalist scroll indicator */}
-              <div className="flex flex-col items-center gap-3 mt-4">
+              {/* 4. Minimalist scroll indicator: Reduced top margin */}
+              <div className="flex flex-col items-center gap-3 mt-6">
                 <div className="w-[1px] h-10 bg-gradient-to-b from-blue-600 to-transparent" />
                 <ArrowDown className="w-4 h-4 text-white/60 animate-bounce" />
               </div>
@@ -267,8 +262,8 @@ export default function BirthdayPage() {
         {/* SECTION 4: ORIKI & VIDEO */}
         <section id="oriki-trigger" className="py-24 md:py-32 px-6 bg-white">
           <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-8 items-stretch">
-            {/* TEXT BOX */}
-            <div className="flex flex-col justify-center space-y-8 p-10 md:p-14 bg-blue-50/30 rounded-[2.5rem] border border-blue-100 shadow-sm w-full">
+            {/* TEXT BOX: w-full ensures it takes full width on mobile */}
+            <div className="w-full flex flex-col justify-center space-y-8 p-10 md:p-14 bg-blue-50/30 rounded-[2.5rem] border border-blue-100 shadow-sm">
               <div className="space-y-2">
                 <h3 className="text-3xl md:text-5xl font-extrabold text-slate-900 tracking-tight">
                   Oriki <span className="text-blue-600">Ibeji</span>
@@ -312,8 +307,8 @@ export default function BirthdayPage() {
               </div>
             </div>
 
-            {/* VIDEO CONTAINER: Forced to match the width and height of the text box */}
-            <div className="relative rounded-[2.5rem] overflow-hidden shadow-2xl bg-black border-[10px] border-white group w-full h-full min-h-[500px] md:min-h-[700px]">
+            {/* VIDEO CONTAINER: Updated to w-full and responsive aspect ratio */}
+            <div className="relative w-full rounded-[2.5rem] overflow-hidden shadow-2xl bg-black border-[10px] border-white group h-full min-h-[500px] md:min-h-[600px] aspect-[4/5] md:aspect-auto">
               {(!isPlaying || !isVideoReady) && (
                 <Image
                   src="/video-poster.webp"
@@ -343,7 +338,7 @@ export default function BirthdayPage() {
                   ref={videoRef}
                   src="/birthday-video.mp4"
                   onPlaying={() => setIsVideoReady(true)}
-                  /* object-cover fills the entire div, object-top prevents head cutting */
+                  /* object-cover + object-top fills container and keeps faces in view */
                   className={`w-full h-full object-cover object-top absolute inset-0 bg-black ${
                     isVideoReady ? "opacity-100" : "opacity-0"
                   }`}
