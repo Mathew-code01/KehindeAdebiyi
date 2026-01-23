@@ -162,30 +162,31 @@ export default function BirthdayPage() {
           </div>
 
           <div className="relative z-10 w-full flex flex-col items-center animate-in fade-in slide-in-from-bottom-4 duration-1000">
-            {/* 1. TOP (WIDEST): Scaled to stay larger than the badge on mobile */}
-            <h1 className="text-[28px] xs:text-[32px] sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tighter leading-tight mb-3 text-white flex flex-wrap justify-center items-center gap-2">
+            {/* 1. TOP: Headline - tracking changed from 'tighter' to 'normal' for better spacing */}
+            <h1 className="text-[28px] xs:text-[32px] sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-normal leading-tight mb-3 text-white flex flex-wrap justify-center items-center gap-x-4">
               World <span className="text-blue-600 animate-glow">Adebiyis</span>{" "}
               Day
             </h1>
 
-            {/* 2. MIDDLE: Font size and tracking reduced on mobile to stay "inside" the headline width */}
+            {/* 2. MIDDLE: The Badge */}
             <div className="mb-5">
-              <div className="px-5 md:px-8 py-2 rounded-full border border-blue-500/20 bg-blue-600/10 backdrop-blur-xl">
-                <span className="text-[9px] sm:text-[10px] md:text-[12px] tracking-[0.2em] md:tracking-[0.4em] text-blue-100 font-bold uppercase whitespace-nowrap">
+              <div className="px-6 md:px-8 py-2 rounded-full border border-blue-500/20 bg-blue-600/10 backdrop-blur-xl">
+                <span className="text-[9px] sm:text-[10px] md:text-[12px] tracking-[0.2em] md:tracking-[0.3em] text-blue-100 font-bold uppercase whitespace-nowrap">
                   Happy Birthday to the Amazing Twins
                 </span>
               </div>
             </div>
 
-            {/* 3. BOTTOM (NARROWEST): "Cut and continue" line breaks with constrained width */}
-            <p className="text-[12px] sm:text-[13px] md:text-[15px] font-medium text-white/80 tracking-wide max-w-[250px] sm:max-w-[280px] md:max-w-[380px] leading-relaxed mb-8">
-              Every January 23rd is a day to celebrate <br />
-              the incredible twins, Taiwo and <br />
-              Kehinde Adebiyi! 🎉 Wishing them <br />
-              joy, success, and fulfilment!
+            {/* 3. BOTTOM: Restructured into 3 lines precisely */}
+            <p className="text-[12px] sm:text-[13px] md:text-[15px] font-medium text-white/80 tracking-wide max-w-[280px] sm:max-w-[350px] md:max-w-[500px] leading-relaxed mb-8">
+              Every January 23rd is a day to celebrate the incredible{" "}
+              <br className="hidden sm:block" />
+              twins, Taiwo and Kehinde Adebiyi! 🎉 Wishing them{" "}
+              <br className="hidden sm:block" />a year filled with joy, success,
+              and fulfilment!
             </p>
 
-            {/* 4. POINT: Minimalist Indicator */}
+            {/* 4. POINT: Scroll Indicator */}
             <div className="flex flex-col items-center gap-2">
               <div className="w-[1px] h-6 md:h-8 bg-gradient-to-b from-blue-600 to-transparent" />
               <ArrowDown className="w-3.5 h-3.5 text-white/20 animate-bounce" />
