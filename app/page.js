@@ -267,8 +267,8 @@ export default function BirthdayPage() {
         {/* SECTION 4: ORIKI & VIDEO */}
         <section id="oriki-trigger" className="py-24 md:py-32 px-6 bg-white">
           <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-8 items-stretch">
-            {/* TEXT BOX: Expanded with more Oriki */}
-            <div className="flex flex-col justify-center space-y-8 p-10 md:p-14 bg-blue-50/30 rounded-[2.5rem] border border-blue-100 shadow-sm">
+            {/* TEXT BOX */}
+            <div className="flex flex-col justify-center space-y-8 p-10 md:p-14 bg-blue-50/30 rounded-[2.5rem] border border-blue-100 shadow-sm w-full">
               <div className="space-y-2">
                 <h3 className="text-3xl md:text-5xl font-extrabold text-slate-900 tracking-tight">
                   Oriki <span className="text-blue-600">Ibeji</span>
@@ -293,7 +293,6 @@ export default function BirthdayPage() {
                   onigba aso.
                 </p>
                 <p>
-                  {/* New lines added to increase height */}
                   Beji lo n se onibara lore, <br />
                   Beji lo n se onigese di olowo. <br />
                   O ji ni kutukutu, o tẹ ekun n’ifa. <br />
@@ -313,8 +312,8 @@ export default function BirthdayPage() {
               </div>
             </div>
 
-            {/* VIDEO CONTAINER: Changed to aspect-[4/5] to prevent head cut-off */}
-            <div className="relative rounded-[2.5rem] overflow-hidden shadow-2xl bg-black border-[10px] border-white group h-full min-h-[600px] aspect-[4/5]">
+            {/* VIDEO CONTAINER: Forced to match the width and height of the text box */}
+            <div className="relative rounded-[2.5rem] overflow-hidden shadow-2xl bg-black border-[10px] border-white group w-full h-full min-h-[500px] md:min-h-[700px]">
               {(!isPlaying || !isVideoReady) && (
                 <Image
                   src="/video-poster.webp"
@@ -344,7 +343,7 @@ export default function BirthdayPage() {
                   ref={videoRef}
                   src="/birthday-video.mp4"
                   onPlaying={() => setIsVideoReady(true)}
-                  /* object-cover fills the space, object-top protects the heads */
+                  /* object-cover fills the entire div, object-top prevents head cutting */
                   className={`w-full h-full object-cover object-top absolute inset-0 bg-black ${
                     isVideoReady ? "opacity-100" : "opacity-0"
                   }`}
