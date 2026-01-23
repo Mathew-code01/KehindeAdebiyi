@@ -135,7 +135,7 @@ export default function BirthdayPage() {
               </div>
             </div>
             <p className="absolute bottom-12 text-[10px] tracking-[0.5em] uppercase font-bold text-blue-800/40">
-              Taiwo & Kehinde • 2026
+              Celebrating Taiwo & Kehinde
             </p>
           </div>
         </div>
@@ -162,31 +162,27 @@ export default function BirthdayPage() {
             <div className="absolute inset-0 bg-black/40" />
           </div>
 
-          <div className="relative z-10 max-w-5xl animate-in fade-in zoom-in-95 duration-1000">
-            {/* Heading: Responsive sizing and line-breaking */}
-            <h1 className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-black tracking-tighter text-white leading-[1.1] mb-12 drop-shadow-2xl">
-              <span className="block mb-2 sm:mb-0">World</span>
-              <span className="flex flex-col sm:flex-row items-center justify-center sm:gap-x-4 md:gap-x-6">
-                <span className="text-blue-600 drop-shadow-[0_0_20px_rgba(37,99,235,0.4)] block sm:inline">
-                  Adebiyis
-                </span>
-                <span className="text-white block sm:inline">Day</span>
-              </span>
+          <div className="relative z-10 max-w-7xl animate-in fade-in zoom-in-95 duration-1000">
+            {/* Headline: One-line, clean, Navy + Royal Blue palette */}
+            <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tighter leading-tight mb-10 flex flex-row items-center justify-center gap-x-3 sm:gap-x-5">
+              <span className="text-blue-900">World</span>
+              <span className="text-blue-600">Adebiyis</span>
+              <span className="text-blue-900">Day</span>
             </h1>
 
             <div className="flex flex-col items-center gap-10">
-              {/* Badge: White Text with Blue In-and-Out Pulse Glow */}
-              <div className="px-6 md:px-8 py-3 rounded-full border border-blue-500/30 bg-blue-600/10 backdrop-blur-xl shadow-[0_0_20px_rgba(37,99,235,0.2)] animate-pulse">
-                <span className="text-[10px] md:text-[12px] tracking-[0.3em] text-white font-bold whitespace-nowrap">
+              {/* THE BADGE: Now with a soft "In-and-Out" breathing effect */}
+              <div className="px-6 md:px-8 py-3 rounded-full border border-blue-500/30 bg-blue-600/10 backdrop-blur-xl transition-all duration-1000">
+                <span className="text-[10px] md:text-[11px] tracking-[0.3em] text-white font-bold whitespace-nowrap uppercase animate-pulse">
                   Happy Birthday to the Amazing Twins
                 </span>
               </div>
 
-              {/* Paragraph: Crisp White and Professional Size */}
-              <p className="text-[11px] md:text-[13px] font-medium text-white tracking-[0.1em] max-w-xl leading-relaxed drop-shadow-md">
-                Happy birthday to the incredible twins, Taiwo and Kehinde
-                Adebiyi! 🎉 Wishing you a year filled with joy, success, and
-                fulfilment!
+              {/* Paragraph: Professional agency sizing */}
+              <p className="text-[11px] md:text-[13px] font-medium text-white/90 tracking-[0.1em] max-w-xl leading-relaxed">
+                Every January 23rd is a day to celebrate the incredible twins,
+                Taiwo and Kehinde Adebiyi! 🎉 Wishing them a year filled with
+                joy, success, and fulfilment!
               </p>
 
               {/* Minimalist scroll indicator */}
@@ -206,7 +202,7 @@ export default function BirthdayPage() {
                 src="/mentor-1.jpg"
                 alt="Kehinde Adebiyi"
                 fill
-                onLoad={resourceLoaded} // Add this line
+                // onLoad={resourceLoaded} // Add this line
                 className="object-cover transition-transform duration-1000 group-hover:scale-110"
               />
             </div>
@@ -265,14 +261,20 @@ export default function BirthdayPage() {
         </section>
 
         {/* SECTION 4: ORIKI & VIDEO */}
-        <section id="oriki-trigger" className="py-24 md:py-40 px-6 bg-white">
+        <section id="oriki-trigger" className="py-24 md:py-32 px-6 bg-white">
           <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-8 items-stretch">
+            {/* TEXT BOX: Balanced Height */}
             <div className="flex flex-col justify-center space-y-8 p-10 md:p-14 bg-blue-50/30 rounded-[2.5rem] border border-blue-100 shadow-sm">
-              <h3 className="text-3xl md:text-5xl font-extrabold text-slate-900 tracking-tight">
-                Oriki <span className="text-blue-600">Ibeji</span>
-              </h3>
+              <div className="space-y-2">
+                <h3 className="text-3xl md:text-5xl font-extrabold text-slate-900 tracking-tight">
+                  Oriki <span className="text-blue-600">Ibeji</span>
+                </h3>
+                <p className="text-[10px] tracking-[0.4em] uppercase text-blue-900/50 font-bold">
+                  The Sacred Chant
+                </p>
+              </div>
 
-              <div className="text-slate-800 text-base md:text-lg italic leading-relaxed font-medium space-y-4">
+              <div className="text-slate-800 text-sm md:text-base italic leading-relaxed font-medium space-y-6">
                 <p>
                   Ẹ̀jìrẹ́ ará ìṣokún. Ẹdúnjobí. <br />
                   Ọmọ ẹdun tíí ṣeré orí igi. <br />
@@ -287,34 +289,40 @@ export default function BirthdayPage() {
                   onigba aso.
                 </p>
                 <p>
-                  Ejiwunmi okomi, abiyamo obekisibekese. <br />O f&apos;ese
-                  mejeji be sile alakisa, o so onigba aso.
+                  Ẹ̀jìrẹ́ òkin, ọmọ ẹdun tíí ṣeré orí igi <br />
+                  A-bí-fẹ́jẹ́-fẹ́jẹ́ lójú mọ́mọ́ rẹ̀. <br />
+                  O bá dandan l&apos;énu, o sọ dandan d&apos;òkodò. <br />
+                  Ejiwunmi okomi, abiyamo obekisibekese.
+                </p>
+                <p>
+                  O f&apos;ese mejeji be sile alakisa, o so onigba aso. <br />
+                  Ẹ̀jìrẹ́ ará ìṣokún, wá bami rẹ́, kí o fún mi ní owó, <br />
+                  Kí o fún mi ní ọmọ, kí o fún mi ní àlàáfíà.
                 </p>
               </div>
             </div>
 
-            {/* VIDEO CONTAINER - FIXED FALLBACK IMAGE */}
-            <div className="relative rounded-[2.5rem] overflow-hidden shadow-2xl bg-slate-900 border-[10px] border-white group min-h-[500px]">
-              {/* Show poster if video isn't playing OR isn't ready */}
+            {/* VIDEO CONTAINER: Matches expanded text height */}
+            <div className="relative rounded-[2.5rem] overflow-hidden shadow-2xl bg-black border-[10px] border-white group h-full min-h-[450px] md:min-h-0">
               {(!isPlaying || !isVideoReady) && (
                 <Image
                   src="/video-poster.webp"
                   alt="Video Thumbnail"
                   fill
                   priority
-                  className="object-cover z-10 transition-opacity duration-700 opacity-70"
+                  className="object-cover z-10 transition-opacity duration-700 opacity-80"
                 />
               )}
 
               {!isPlaying && (
-                <div className="absolute inset-0 z-20 flex flex-col items-center justify-center bg-black/20 group-hover:bg-black/40 transition-all duration-500">
+                <div className="absolute inset-0 z-20 flex flex-col items-center justify-center bg-black/30 group-hover:bg-black/50 transition-all duration-500">
                   <button
                     onClick={handlePlay}
-                    className="w-24 h-24 bg-white rounded-full flex items-center justify-center shadow-2xl scale-90 group-hover:scale-100 transition-transform"
+                    className="w-20 h-20 md:w-24 md:h-24 bg-white rounded-full flex items-center justify-center shadow-2xl scale-90 group-hover:scale-100 transition-transform cursor-pointer"
                   >
                     <Play className="w-8 h-8 text-blue-600 fill-blue-600 ml-1" />
                   </button>
-                  <p className="mt-6 font-bold uppercase tracking-[0.4em] text-white text-[10px]">
+                  <p className="mt-6 font-bold uppercase tracking-[0.4em] text-white text-[9px] md:text-[10px]">
                     Watch Tribute
                   </p>
                 </div>
@@ -325,7 +333,7 @@ export default function BirthdayPage() {
                   ref={videoRef}
                   src="/birthday-video.mp4"
                   onPlaying={() => setIsVideoReady(true)}
-                  className={`w-full h-full object-cover ${
+                  className={`w-full h-full object-cover absolute inset-0 bg-black ${
                     isVideoReady ? "opacity-100" : "opacity-0"
                   }`}
                   controls={isPlaying}
@@ -335,7 +343,7 @@ export default function BirthdayPage() {
             </div>
           </div>
         </section>
-
+        
         {/* SECTION 5: FOOTER */}
         <footer className="bg-blue-700 py-24 px-6 relative overflow-hidden text-white">
           <div className="relative z-10 max-w-6xl mx-auto flex flex-col items-center space-y-16">
