@@ -261,102 +261,99 @@ export default function BirthdayPage() {
         </section>
 
         {/* SECTION 4: ORIKI & VIDEO */}
-        <section id="oriki-trigger" className="py-24 md:py-32 px-6 bg-white">
-          {" "}
-          {/* Zebra Layout: Clean White */}
-          <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-8 items-stretch">
-            {/* TEXT BOX: Updated with 'Eulogy for Twins' and expanded text */}
-            <div className="w-full flex flex-col justify-center space-y-10 p-10 md:p-16 bg-slate-50/50 rounded-[2.5rem] border border-slate-100 shadow-sm">
-              <div className="space-y-3">
-                <h3 className="text-4xl md:text-5xl font-light text-slate-900 tracking-tight">
-                  Oriki{" "}
-                  <span className="font-semibold text-blue-600">Ibeji</span>
-                </h3>
-                <p className="text-[10px] tracking-[0.5em] uppercase text-slate-400 font-bold">
-                  Eulogy for Twins
-                </p>
-              </div>
+<section id="oriki-trigger" className="py-16 md:py-24 px-6 bg-white">
+  <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-8 items-stretch"> {/* Equal height on desktop */}
+    
+    {/* TEXT BOX */}
+    <div className="w-full flex flex-col justify-center space-y-6 p-8 md:p-10 bg-slate-50/50 rounded-[2rem] border border-slate-100 shadow-sm order-1">
+      <div className="space-y-1">
+        <h3 className="text-3xl md:text-4xl font-light text-slate-900 tracking-tight">
+          Oriki <span className="font-semibold text-blue-600">Ibeji</span>
+        </h3>
+        <p className="text-[9px] tracking-[0.4em] uppercase text-slate-400 font-bold">
+          Eulogy for Twins
+        </p>
+      </div>
 
-              <div className="text-slate-700 text-base md:text-lg italic leading-[1.8] font-normal space-y-8">
-                <p>
-                  Ẹ̀jìrẹ́ ará ìṣokún. <br />
-                  Ẹdúnjobí. <br />
-                  Ọmọ ẹdun tíí ṣeré orí igi. <br />
-                  Okan mba bi, Eji wole to mi wa. <br />
-                  Edunjobi a po jojo wolu.
-                </p>
+      <div className="text-slate-700 text-sm md:text-[15px] italic leading-relaxed font-normal space-y-5">
+        <p>
+          Ẹ̀jìrẹ́ ará ìṣokún. <br />
+          Ẹdúnjobí. <br />
+          Ọmọ ẹdun tíí ṣeré orí igi. <br />
+          Okan mba bi, Eji wole to mi wa. <br />
+          Edunjobi a po jojo wolu.
+        </p>
+        
+        <p>
+          O f&apos;iya gbaaru, O gbe Baba lori esin. <br />
+          Winriwinrin l&apos;oju orogun, Ejiworo l&apos;oju iya re. <br />
+          Omo ko ile alaso, o ya sile alakisa. <br />
+          O so alakisa di onigba aso.
+        </p>
 
-                <p>
-                  O f&apos;iya gbaaru, O gbe Baba lori esin. <br />
-                  Winriwinrin l&apos;oju orogun, Ejiworo l&apos;oju iya re.{" "}
-                  <br />
-                  Omo ko ile alaso, o ya sile alakisa. <br />O so alakisa di
-                  onigba aso.
-                </p>
+        <p>
+          Beji lo n se onibara lore, <br />
+          Beji lo n se onigese di olowo. <br />
+          O ji ni kutukutu, o tẹ ekun n’ifa. <br />
+          A-ji-fẹ-fẹ-fẹ-l’oju-iya-rẹ.
+        </p>
 
-                <p>
-                  Beji lo n se onibara lore, <br />
-                  Beji lo n se onigese di olowo. <br />
-                  O ji ni kutukutu, o tẹ ekun n’ifa. <br />
-                  A-ji-fẹ-fẹ-fẹ-l’oju-iya-rẹ.
-                </p>
+        <p>
+          Ẹ̀jìrẹ́ òkin, ọmọ ẹdun tíí ṣeré orí igi <br />
+          A-bí-fẹ́jẹ́-fẹ́jẹ́ lójú mọ́mọ́ rẹ̀. <br />
+          O bá dandan l&apos;énu, o sọ dandan d&apos;òkodò. <br />
+          Ejiwunmi okomi, abiyamo obekisibekese.
+        </p>
 
-                <p>
-                  Ẹ̀jìrẹ́ òkin, ọmọ ẹdun tíí ṣeré orí igi <br />
-                  A-bí-fẹ́jẹ́-fẹ́jẹ́ lójú mọ́mọ́ rẹ̀. <br />
-                  O bá dandan l&apos;énu, o sọ dandan d&apos;òkodò. <br />
-                  Ejiwunmi okomi, abiyamo obekisibekese.
-                </p>
+        <p className="not-italic font-medium text-slate-900 pt-5 border-t border-slate-200/60">
+          O f&apos;ese mejeji be sile alakisa, o so onigba aso. <br />
+          Ẹ̀jìrẹ́ ará ìṣokún, wá bami rẹ́, kí o fún mi ní owó, <br />
+          Kí o fún mi ní ọmọ, kí o fún mi ní àlàáfíà.
+        </p>
+      </div>
+    </div>
 
-                <p className="not-italic font-medium text-slate-900 pt-4 border-t border-slate-200/60">
-                  O f&apos;ese mejeji be sile alakisa, o so onigba aso. <br />
-                  Ẹ̀jìrẹ́ ará ìṣokún, wá bami rẹ́, kí o fún mi ní owó, <br />
-                  Kí o fún mi ní ọmọ, kí o fún mi ní àlàáfíà.
-                </p>
-              </div>
-            </div>
+    {/* VIDEO CONTAINER: Fixed height on mobile, stretches on desktop */}
+    <div className="relative w-full rounded-[2rem] overflow-hidden shadow-xl bg-black border-[6px] border-white group h-[400px] md:h-auto order-2">
+      {(!isPlaying || !isVideoReady) && (
+        <Image
+          src="/video-poster.webp"
+          alt="Video Thumbnail"
+          fill
+          priority
+          className="object-cover z-10 transition-opacity duration-700 opacity-80"
+        />
+      )}
 
-            {/* VIDEO CONTAINER */}
-            <div className="relative w-full rounded-[2.5rem] overflow-hidden shadow-2xl bg-black border-[10px] border-white group h-full min-h-[500px] md:min-h-[600px] aspect-[4/5] md:aspect-auto">
-              {(!isPlaying || !isVideoReady) && (
-                <Image
-                  src="/video-poster.webp"
-                  alt="Video Thumbnail"
-                  fill
-                  priority
-                  className="object-cover z-10 transition-opacity duration-700 opacity-80"
-                />
-              )}
+      {!isPlaying && (
+        <div className="absolute inset-0 z-20 flex flex-col items-center justify-center bg-black/30 group-hover:bg-black/50 transition-all duration-500">
+          <button
+            onClick={handlePlay}
+            className="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-2xl scale-90 group-hover:scale-100 transition-transform cursor-pointer"
+          >
+            <Play className="w-6 h-6 text-blue-600 fill-blue-600 ml-1" />
+          </button>
+          <p className="mt-4 font-bold uppercase tracking-[0.3em] text-white text-[8px] md:text-[9px]">
+            Watch Tribute
+          </p>
+        </div>
+      )}
 
-              {!isPlaying && (
-                <div className="absolute inset-0 z-20 flex flex-col items-center justify-center bg-black/30 group-hover:bg-black/50 transition-all duration-500">
-                  <button
-                    onClick={handlePlay}
-                    className="w-20 h-20 md:w-24 md:h-24 bg-white rounded-full flex items-center justify-center shadow-2xl scale-90 group-hover:scale-100 transition-transform cursor-pointer"
-                  >
-                    <Play className="w-8 h-8 text-blue-600 fill-blue-600 ml-1" />
-                  </button>
-                  <p className="mt-6 font-bold uppercase tracking-[0.4em] text-white text-[9px] md:text-[10px]">
-                    Watch Tribute
-                  </p>
-                </div>
-              )}
-
-              {shouldLoadVideo && (
-                <video
-                  ref={videoRef}
-                  src="/birthday-video.mp4"
-                  onPlaying={() => setIsVideoReady(true)}
-                  className={`w-full h-full object-cover object-top absolute inset-0 bg-black ${
-                    isVideoReady ? "opacity-100" : "opacity-0"
-                  }`}
-                  controls={isPlaying}
-                  playsInline
-                />
-              )}
-            </div>
-          </div>
-        </section>
+      {shouldLoadVideo && (
+        <video
+          ref={videoRef}
+          src="/birthday-video.mp4"
+          onPlaying={() => setIsVideoReady(true)}
+          className={`w-full h-full object-cover object-top absolute inset-0 bg-black ${
+            isVideoReady ? "opacity-100" : "opacity-0"
+          }`}
+          controls={isPlaying}
+          playsInline
+        />
+      )}
+    </div>
+  </div>
+</section>
 
         {/* SECTION 5: FOOTER */}
         <footer className="bg-blue-700 py-24 px-6 relative overflow-hidden text-white">
